@@ -2,7 +2,7 @@ import re
 import pandas as pd
 
 #read emails csv
-data = pd.read_csv('equity_emails.csv')
+data = pd.read_csv('emails.csv')
 
 #get first column of data only
 df = data.iloc[:,0]
@@ -18,7 +18,7 @@ bad_emails = []
 
 for email in emails:
     
-     match = re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', email)
+     match = re.match('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$', email)
 
      if match == None:
          print("%s has bad syntax" % (email))
